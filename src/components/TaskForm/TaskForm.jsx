@@ -67,9 +67,9 @@ const TaskForm = () => {
               selected={checkTag("QA")}
             />
             <Tag
-              tagName="PO"
+              tagName="Product Owner"
               selectedTag={selectedTag}
-              selected={checkTag("PO")}
+              selected={checkTag("Product Owner")}
             />
           </div>
           <div>
