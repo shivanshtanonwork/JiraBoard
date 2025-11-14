@@ -2,7 +2,7 @@ import { useState } from "react";
 import Tag from "../Tag/Tag";
 import "./TaskForm.css";
 
-const TaskForm = () => {
+const TaskForm = ({ setTasks }) => {
   const [taskData, setTaskData] = useState({
     task: "",
     status: "Ready for Development",
@@ -20,6 +20,9 @@ const TaskForm = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    setTasks((prev) => {
+      return [...prev, taskData];
+    });
     console.log(taskData);
   };
   const selectedTag = (tag) => {
