@@ -5,7 +5,10 @@ import TaskColumn from "./components/TaskColumn/TaskColumn";
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
-  console.log(tasks);
+  const handleDelete = (taskIndex) => {
+    const newTask = tasks.filter((task, index) => index !== taskIndex);
+    setTasks(newTask);
+  };
   return (
     <div className="app">
       <h1 style={{ textAlign: "center", margin: "50px" }}>Jira Board</h1>
@@ -15,14 +18,26 @@ const App = () => {
           title="Ready for Development"
           tasks={tasks}
           status="Ready for Development"
+          handleDelete={handleDelete}
         />
-        <TaskColumn title="In Progress" tasks={tasks} status="In Progress" />
+        <TaskColumn
+          title="In Progress"
+          tasks={tasks}
+          status="In Progress"
+          handleDelete={handleDelete}
+        />
         <TaskColumn
           title="Ready for test"
           tasks={tasks}
           status="Ready for test"
+          handleDelete={handleDelete}
         />
-        <TaskColumn title="✅Closed" tasks={tasks} status="Closed" />
+        <TaskColumn
+          title="✅Closed"
+          tasks={tasks}
+          status="Closed"
+          handleDelete={handleDelete}
+        />
       </main>
     </div>
   );

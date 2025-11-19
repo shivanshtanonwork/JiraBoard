@@ -3,7 +3,7 @@
     border: 1px solid #dcdcdc;
     border-radius: 10px;
     padding: 15px;
-    margin: 15px 24px;
+    margin: 15px 1px
 }
 
 .task_card_bottom_line {
@@ -18,7 +18,7 @@
     margin-bottom: 15px;
 }
 
-.task_delete { 
+.task_delete {
     width: 30px;
     height: 30px;
     border-radius: 100%;
