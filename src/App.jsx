@@ -16,21 +16,13 @@ const App = () => {
           tasks={tasks}
           status="Ready for Development"
         />
-        <TaskColumn
-          title="In Progress"
-          tasks={tasks}
-          status="Ready for Development"
-        />
+        <TaskColumn title="In Progress" tasks={tasks} status="In Progress" />
         <TaskColumn
           title="Ready for test"
           tasks={tasks}
-          status="Ready for Development"
+          status="Ready for test"
         />
-        <TaskColumn
-          title="✅Closed"
-          tasks={tasks}
-          status="Ready for Development"
-        />
+        <TaskColumn title="✅Closed" tasks={tasks} status="Closed" />
       </main>
     </div>
   );
