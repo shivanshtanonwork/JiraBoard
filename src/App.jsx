@@ -3,6 +3,9 @@ import "./app.css";
 import TaskForm from "./components/TaskForm/TaskForm";
 import TaskColumn from "./components/TaskColumn/TaskColumn";
 
+const existingTasks = localStorage.getItem("tasks");
+console.log(existingTasks);
+
 const App = () => {
   const [tasks, setTasks] = useState([]);
   const handleDelete = (taskIndex) => {
