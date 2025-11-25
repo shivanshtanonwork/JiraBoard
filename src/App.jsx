@@ -13,6 +13,21 @@ const App = () => {
 
   const [activeCard, setActiveCard] = useState(null);
 
+  const onDrop = (status, position) => {
+    console.log(
+      `${activeCard} is going to place into ${status} and at the position ${position}`
+    );
+    if (activeCard === null || activeCard === undefined) return;
+
+    const tasktoMove = tasks[activeCard];
+    const updatedTasks = tasks.filter((task, index) => index !== activeCard);
+    updatedTasks.splice(position, 0, {
+      ...tasktoMove,
+      status: status,
+    });
+    setTasks(updatedTasks);
+  };
+
   const handleDelete = (taskIndex) => {
     const newTask = tasks.filter((task, index) => index !== taskIndex);
     setTasks(newTask);
@@ -28,6 +43,7 @@ const App = () => {
           status="Ready for Development"
           handleDelete={handleDelete}
           setActiveCard={setActiveCard}
+          onDrop={onDrop}
         />
         <TaskColumn
           title="In Progress"
@@ -35,6 +51,7 @@ const App = () => {
           status="In Progress"
           handleDelete={handleDelete}
           setActiveCard={setActiveCard}
+          onDrop={onDrop}
         />
         <TaskColumn
           title="Ready for test"
@@ -42,6 +59,7 @@ const App = () => {
           status="Ready for test"
           handleDelete={handleDelete}
           setActiveCard={setActiveCard}
+          onDrop={onDrop}
         />
         <TaskColumn
           title="✅Closed"
@@ -49,9 +67,9 @@ const App = () => {
           status="Closed"
           handleDelete={handleDelete}
           setActiveCard={setActiveCard}
+          onDrop={onDrop}
         />
       </main>
-      <h2>Active Card{activeCard}</h2>
     </div>
   );
 };
